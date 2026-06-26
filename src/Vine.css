@@ -1,0 +1,10 @@
+@keyframes swing {
+  0%, 100% { transform: rotate(-5deg); }
+  50%       { transform: rotate(5deg);  }
+}
+
+.apple-swing {
+  animation: swing var(--duration, 3.5s) var(--delay, 0s) ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+}

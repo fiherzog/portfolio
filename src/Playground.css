@@ -1,0 +1,165 @@
+.playground-page {
+  background-color: #fadaff;
+  min-height: 100vh;
+}
+
+.playground-container {
+  max-width: 1524px;
+  margin: 0 auto;
+  padding: 0 194px 80px;
+  box-sizing: border-box;
+}
+
+/* ── Intro ── */
+.pg-intro {
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  font-size: 22px;
+  color: #000;
+  line-height: 1.5;
+  margin: 40px 0 32px;
+}
+
+/* ── Masonry ── */
+.pg-masonry {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pg-row {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.pg-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.pg-col-wide {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  min-width: 0;
+}
+
+.pg-img {
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.pg-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Cursor-following label ── */
+.pg-img--labeled {
+  cursor: none;
+}
+
+.pg-tooltip {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 237px;
+  padding: 22px 22px;
+  background: #043c15;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: normal;
+  border-radius: 8px;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 9999;
+  will-change: transform;
+  box-sizing: border-box;
+}
+
+.pg-tooltip p {
+  margin: 0;
+}
+
+.pg-tooltip a {
+  color: #fff;
+  text-decoration: underline;
+  pointer-events: none;
+}
+
+.pg-tooltip--visible {
+  opacity: 1;
+}
+
+/* ── Coming Soon ── */
+.pg-coming-soon {
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pg-coming-soon--stretch {
+  flex: 1;
+  min-height: 200px;
+}
+
+.pg-coming-soon span {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .playground-container {
+    padding: 0 40px 60px;
+  }
+
+  .pg-intro {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 680px) {
+  .playground-container {
+    padding: 0 20px 40px;
+  }
+
+  .pg-intro {
+    font-size: 16px;
+  }
+
+  .pg-masonry {
+    gap: 8px;
+  }
+
+  .pg-row {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .pg-col,
+  .pg-col-wide {
+    gap: 8px;
+    flex: 1 1 100%;
+  }
+
+  .pg-coming-soon span {
+    font-size: 18px;
+  }
+}
