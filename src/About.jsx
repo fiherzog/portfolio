@@ -36,7 +36,7 @@ export default function About() {
           </div>
           <div className="intro-content">
             <p className="intro-text">
-              Hello, I am Fiona Herzog.
+              Hello, I am Fiona Herzog!
               <br /><br />
               I am a student that is passionate about learning and utilizing technology to create an
               impact. I currently study Communications &amp; Computer Science with a concentration in
