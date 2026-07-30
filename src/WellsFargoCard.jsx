@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'react';
+import './WellsFargoCard.css';
 import cardImg from './assets/Autograph.png';
 
-export default function WellsFargoCard({ height = 340 }) {
+export default function WellsFargoCard({ height = 250 }) {
   const stageRef = useRef(null);
   const cardRef = useRef(null);
   const shineRef = useRef(null);
@@ -33,8 +34,8 @@ export default function WellsFargoCard({ height = 340 }) {
       idleT += 0.006;
       hover += (hoverTarget - hover) * 0.06;
 
-      const idleX = 0.5 + Math.sin(idleT) * 0.14;
-      const idleY = 0.5 + Math.cos(idleT * 0.8) * 0.09;
+      const idleX = 0.5 + Math.sin(idleT) * 0.18;
+      const idleY = 0.5 + Math.cos(idleT * 0.8) * 0.12;
       px += ((mx * hover + idleX * (1 - hover)) - px) * 0.08;
       py += ((my * hover + idleY * (1 - hover)) - py) * 0.08;
 
@@ -49,7 +50,7 @@ export default function WellsFargoCard({ height = 340 }) {
       const shadowBlur = 36 + hover * 22;
       card.style.filter = `drop-shadow(${shadowX}px ${shadowY}px ${shadowBlur}px rgba(0,0,0,${0.5 + hover * 0.18}))`;
 
-      const shineOpacity = 0.12 + hover * 0.38;
+      const shineOpacity = 0.16 + hover * 0.38;
       shine.style.background = `radial-gradient(circle at ${px * 100}% ${py * 100}%, rgba(255,255,255,${shineOpacity}) 0%, rgba(255,255,255,0) 42%)`;
 
       rafId = requestAnimationFrame(loop);
@@ -77,7 +78,7 @@ export default function WellsFargoCard({ height = 340 }) {
         cursor: 'pointer',
       }}
     >
-      <div style={{ position: 'relative', width: '68%', perspective: 1000 }}>
+      <div style={{ position: 'relative', width: '78%', perspective: 1000 }}>
         <div
           ref={cardRef}
           style={{ position: 'relative', width: '100%', transformStyle: 'preserve-3d', willChange: 'transform' }}
@@ -103,6 +104,22 @@ export default function WellsFargoCard({ height = 340 }) {
               pointerEvents: 'none',
             }}
           />
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              WebkitMaskImage: `url(${cardImg})`,
+              maskImage: `url(${cardImg})`,
+              WebkitMaskSize: '100% 100%',
+              maskSize: '100% 100%',
+              WebkitMaskRepeat: 'no-repeat',
+              maskRepeat: 'no-repeat',
+              overflow: 'hidden',
+              pointerEvents: 'none',
+            }}
+          >
+            <div className="wf-shimmer" />
+          </div>
           <img
             src={cardImg}
             alt=""
