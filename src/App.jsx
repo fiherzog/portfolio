@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Work from './Work';
 import About from './About';
 import Playground from './Playground';
@@ -6,7 +6,7 @@ import Blog from './Blog';
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Navigate to="/work" replace />} />
         <Route path="/work" element={<Work />} />
@@ -14,6 +14,6 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/playground" element={<Playground />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
