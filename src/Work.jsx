@@ -89,9 +89,9 @@ export default function Work() {
         <div className="work-col">
           <ProjectCard
             customImage={<WellsFargoCard height={250} />}
-            meta="Summer 2026 | Product Management Internship"
+            meta="Summer 2026 | Product Management Internship–Branded cards"
             title="Wells Fargo"
-            description="Developing branded credit card products backed by data-driven analysis in SAS, partnering with engineering and design teams to bring features to life."
+            description="Developing credit card products backed by data-driven analysis in SAS."
           />
           <ProjectCard
             image={imgTechnicalLy}
