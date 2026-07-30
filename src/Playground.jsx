@@ -165,28 +165,24 @@ export default function Playground() {
             </div>
           </div>
 
-          {/* Row 2: three image columns */}
-          <div className="pg-row">
-            <div className="pg-col">
-              <Img src={imgAppleCraft} ratio="426/379" label={appleLabel} />
-              <Img src={imgImg4915}    ratio="426/495" label={img4915Label} />
-            </div>
-            <div className="pg-col">
-              <Img src={imgBoloButton} ratio="426/538" label={boloLabel} />
-              <Img src={imgBeads}      ratio="426/352" label={beadsLabel} />
-            </div>
-            <div className="pg-col">
-              <Img src={imgKoifish}    ratio="426/438" label={koifishLabel} />
-              <Img src={imgPikachu}    ratio="426/379" />
-            </div>
-          </div>
-
-          {/* Row 3: wide coming soon (cols 1–2) | img1852 (col 3) */}
+          {/* Row 2: applecraft/bolo/img4915/beads + wide coming soon (cols 1–2) | koifish, pikachu, img1852 stacked continuously (col 3) */}
           <div className="pg-row">
             <div className="pg-col-wide">
+              <div className="pg-row">
+                <div className="pg-col">
+                  <Img src={imgAppleCraft} ratio="426/379" label={appleLabel} />
+                  <Img src={imgImg4915}    ratio="426/495" label={img4915Label} />
+                </div>
+                <div className="pg-col">
+                  <Img src={imgBoloButton} ratio="426/538" label={boloLabel} />
+                  <Img src={imgBeads}      ratio="426/352" label={beadsLabel} />
+                </div>
+              </div>
               <ComingSoon stretch />
             </div>
             <div className="pg-col">
+              <Img src={imgKoifish}  ratio="426/438" label={koifishLabel} />
+              <Img src={imgPikachu} ratio="426/379" />
               <Img src={imgImg1852} ratio="426/568" />
             </div>
           </div>

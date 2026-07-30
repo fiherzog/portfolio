@@ -1,0 +1,27 @@
+.blog-page {
+  background-color: #fadaff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-coming-soon {
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  font-size: 30px;
+  color: #153317;
+  margin: 0;
+}
+
+@media (max-width: 680px) {
+  .blog-coming-soon {
+    font-size: 22px;
+  }
+}

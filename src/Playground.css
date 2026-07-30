@@ -4,9 +4,9 @@
 }
 
 .playground-container {
-  max-width: 1524px;
+  max-width: 1506px;
   margin: 0 auto;
-  padding: 0 194px 80px;
+  padding: 0 99px 80px;
   box-sizing: border-box;
 }
 
@@ -36,7 +36,7 @@
 .pg-col {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 8px;
   flex: 1;
   min-width: 0;
@@ -45,6 +45,7 @@
 .pg-col-wide {
   display: flex;
   flex-direction: column;
+  gap: 8px;
   flex: 2;
   min-width: 0;
 }

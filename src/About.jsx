@@ -46,25 +46,21 @@ export default function About() {
               inquiries, feel free to e-mail me at fherzog@sas.upenn.edu
             </p>
             <div className="social-links">
-              <div className="social-row">
-                <a href="https://www.linkedin.com/in/fionaherzog/" target="_blank" rel="noreferrer" className="social-item">
-                  <img src={imgLinkedin} alt="LinkedIn" className="social-icon" />
-                  <span>/fionaherzog</span>
-                </a>
-                <a href="https://github.com/fiherzog" target="_blank" rel="noreferrer" className="social-item">
-                  <img src={imgGithub} alt="GitHub" className="social-icon" />
-                  <span>@fiherzog</span>
-                </a>
-              </div>
-              <div className="social-row">
-                <a href="https://www.instagram.com/blackberrings/" target="_blank" rel="noreferrer" className="social-item">
-                  <img src={imgInstagram} alt="Instagram" className="social-icon" />
-                  <span>@blackberrings</span>
-                </a>
-                <a href="https://drive.google.com/file/d/1rruAu3cldWcmISGVLyW3lOwKseME7wbc/view?usp=sharing" target="_blank" rel="noreferrer" className="social-item social-item--no-icon">
-                  <span>Resume</span>
-                </a>
-              </div>
+              <a href="https://www.linkedin.com/in/fionaherzog/" target="_blank" rel="noreferrer" className="social-item">
+                <img src={imgLinkedin} alt="LinkedIn" className="social-icon" />
+                <span>/fionaherzog</span>
+              </a>
+              <a href="https://github.com/fiherzog" target="_blank" rel="noreferrer" className="social-item">
+                <img src={imgGithub} alt="GitHub" className="social-icon" />
+                <span>@fiherzog</span>
+              </a>
+              <a href="https://www.instagram.com/blackberrings/" target="_blank" rel="noreferrer" className="social-item">
+                <img src={imgInstagram} alt="Instagram" className="social-icon" />
+                <span>@blackberrings</span>
+              </a>
+              <a href="https://drive.google.com/file/d/1rruAu3cldWcmISGVLyW3lOwKseME7wbc/view?usp=sharing" target="_blank" rel="noreferrer" className="social-item social-item--no-icon">
+                <span>Resume</span>
+              </a>
             </div>
           </div>
         </section>

@@ -15,43 +15,47 @@ function ProjectCard({ image, video, imageFit = 'cover', imageHeight, imageAspec
   const imageContainerStyle = imageAspectRatio
     ? { aspectRatio: imageAspectRatio }
     : { height: imageHeight };
+  const href = imageHref || titleHref;
+
+  const media = video ? (
+    <video
+      src={video}
+      className="project-img"
+      style={{ objectFit: 'cover' }}
+      autoPlay
+      loop
+      muted
+      playsInline
+    />
+  ) : image ? (
+    <img
+      src={image}
+      alt=""
+      className="project-img"
+      style={{ objectFit: imageFit, ...imageStyle }}
+    />
+  ) : (
+    <div className="project-img-placeholder" />
+  );
 
   return (
     <div className="project-card">
       {customImage ? (
-        <div className="project-image-custom">{customImage}</div>
+        href ? (
+          <a href={href} target="_blank" rel="noreferrer" className="project-image-custom">
+            {customImage}
+          </a>
+        ) : (
+          <div className="project-image-custom">{customImage}</div>
+        )
       ) : (
         <div className="project-image" style={imageContainerStyle}>
-          {video ? (
-            <video
-              src={video}
-              className="project-img"
-              style={{ objectFit: 'cover' }}
-              autoPlay
-              loop
-              muted
-              playsInline
-            />
-          ) : image ? (
-            (imageHref || titleHref) ? (
-              <a href={imageHref || titleHref} target="_blank" rel="noreferrer">
-                <img
-                  src={image}
-                  alt=""
-                  className="project-img"
-                  style={{ objectFit: imageFit, ...imageStyle }}
-                />
-              </a>
-            ) : (
-              <img
-                src={image}
-                alt=""
-                className="project-img"
-                style={{ objectFit: imageFit, ...imageStyle }}
-              />
-            )
+          {href ? (
+            <a href={href} target="_blank" rel="noreferrer">
+              {media}
+            </a>
           ) : (
-            <div className="project-img-placeholder" />
+            media
           )}
         </div>
       )}
