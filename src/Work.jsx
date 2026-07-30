@@ -91,7 +91,7 @@ export default function Work() {
             customImage={<WellsFargoCard height={250} />}
             meta="Summer 2026 | Product Management Internship"
             title="Wells Fargo"
-            description="Developing products for the branded cards team, synthesizing research and insights across cross-functional teams to shape product strategy."
+            description="Shaping the roadmap for branded credit card products by translating customer research and SQL-driven data analysis into feature specs, partnering closely with engineering, design, and data science teams to prioritize card benefits and rewards features."
           />
           <ProjectCard
             image={imgTechnicalLy}
