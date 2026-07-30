@@ -1,6 +1,7 @@
 import './Work.css';
 import Nav from './Nav';
 import BroadcastAscii from './BroadcastAscii';
+import WellsFargoCard from './WellsFargoCard';
 import imgTechnicalLy from './assets/technical.ly.gif';
 import imgStride from './assets/6fb80f6da4ca8760bfd70495e32e0d792071f288.png';
 import imgPentup from './assets/c52614be57450f8c6e1fa96ffabf4e79b24ce4fc.png';
@@ -86,6 +87,12 @@ export default function Work() {
       <div className="work-grid">
         {/* Column 1 */}
         <div className="work-col">
+          <ProjectCard
+            customImage={<WellsFargoCard height={340} />}
+            meta="June 2026 - Present | Product Management Internship"
+            title="Wells Fargo"
+            description="More details coming soon."
+          />
           <ProjectCard
             image={imgTechnicalLy}
             imageAspectRatio="417/250"
