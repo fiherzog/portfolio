@@ -19,7 +19,7 @@ import imgBoloButton  from './assets/bolobutton.png';
 const risoLabel = (
   <>
     <p>
-      series of <a href="https://risottostudio.com/pages/what-is-risograph-printing?srsltid=AfmBOoreAiBNWhZX5vLfqpYtv_ckWVhxpTIVSGigYOOaguzDGK5QLgRe" target="_blank" rel="noreferrer">riso-prints</a>.
+      series of <a href="https://risottostudio.com/pages/what-is-risograph-printing?srsltid=AfmBOoreAiBNWhZX5vLfqpYtv_ckWVhxpTIVSGigYOOaguzDGK5QLgRe" target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>riso-prints</a>.
     </p>
     <p>&nbsp;</p>
     <p>
@@ -27,7 +27,7 @@ const risoLabel = (
       <span style={{ fontStyle: 'normal', fontWeight: 400 }}>Risoprinting machine, Adobe Illustrator. </span>
     </p>
     <p style={{ fontStyle: 'normal', fontWeight: 400 }}>
-      Designed by me. Other blocks on this page feature other risoprinted projects.
+      Designed by me.
     </p>
   </>
 );
