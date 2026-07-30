@@ -31,13 +31,13 @@ export default function WellsFargoCard({ height = 250 }) {
     stage.addEventListener('mouseleave', onLeave);
 
     const loop = () => {
-      idleT += 0.014;
+      idleT += 0.024;
       hover += (hoverTarget - hover) * 0.06;
 
-      const idleX = 0.5 + Math.sin(idleT) * 0.26;
-      const idleY = 0.5 + Math.cos(idleT * 0.8) * 0.17;
-      px += ((mx * hover + idleX * (1 - hover)) - px) * 0.08;
-      py += ((my * hover + idleY * (1 - hover)) - py) * 0.08;
+      const idleX = 0.5 + Math.sin(idleT) * 0.36;
+      const idleY = 0.5 + Math.cos(idleT * 0.8) * 0.24;
+      px += ((mx * hover + idleX * (1 - hover)) - px) * 0.12;
+      py += ((my * hover + idleY * (1 - hover)) - py) * 0.12;
 
       const rotY = (px - 0.5) * 30;
       const rotX = (0.5 - py) * 20;
