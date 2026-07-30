@@ -2,10 +2,10 @@ import Nav from './Nav';
 import { VineRight, VineLeft } from './Vine';
 import './About.css';
 
-import imgFiona from './assets/fiona.png';
-import imgPhoto1 from './assets/photo1.png';
-import imgPhoto2 from './assets/photo2.png';
-import imgPhoto3 from './assets/photo3.png';
+import imgFiona from './assets/fiona.jpg';
+import imgPhoto1 from './assets/photo1.jpg';
+import imgPhoto2 from './assets/photo2.jpg';
+import imgPhoto3 from './assets/photo3.jpg';
 import imgLinkedin from './assets/linkedin.svg';
 import imgInstagram from './assets/instagram.svg';
 import imgGithub from './assets/github.svg';

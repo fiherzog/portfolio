@@ -2,17 +2,17 @@ import { useRef, useState } from 'react';
 import Nav from './Nav';
 import './Playground.css';
 
-import imgRiso        from './assets/riso.png';
-import imgPikachu     from './assets/pikachu.png';
-import imgAppleCraft  from './assets/applecraft.png';
-import imgKoifish     from './assets/koifish.png';
-import imgLuckycat    from './assets/luckycat.png';
-import imgBeads       from './assets/beads.png';
-import imgImg5500     from './assets/img5500.png';
-import imgCatcoasters from './assets/catcoasters.png';
-import imgImg4915     from './assets/img4915.png';
-import imgImg1852     from './assets/img1852.png';
-import imgBoloButton  from './assets/bolobutton.png';
+import imgRiso        from './assets/riso.jpg';
+import imgPikachu     from './assets/pikachu.jpg';
+import imgAppleCraft  from './assets/applecraft.jpg';
+import imgKoifish     from './assets/koifish.jpg';
+import imgLuckycat    from './assets/luckycat.jpg';
+import imgBeads       from './assets/beads.jpg';
+import imgImg5500     from './assets/img5500.jpg';
+import imgCatcoasters from './assets/catcoasters.jpg';
+import imgImg4915     from './assets/img4915.jpg';
+import imgImg1852     from './assets/img1852.jpg';
+import imgBoloButton  from './assets/bolobutton.jpg';
 
 /* ── Cursor-following tooltip labels ── */
 
