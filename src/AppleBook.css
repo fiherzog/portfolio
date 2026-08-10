@@ -1,0 +1,179 @@
+/* ── Preview card (sits in the Playground "coming soon" slot) ── */
+.ab-card {
+  border: none;
+  padding: 14px;
+  cursor: pointer;
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  transition: background 0.2s ease;
+}
+
+.ab-card:hover {
+  background: #111;
+}
+
+.ab-card:hover .ab-wrap {
+  transform: translateY(-2px);
+}
+
+/* .pg-coming-soon span (sized for the "image coming soon!" placeholder)
+   would otherwise also match the tooltip's bold/regular spans since the
+   card carries both classes — reassert the tooltip's own typography. */
+.ab-card .pg-tooltip,
+.ab-card .pg-tooltip p,
+.ab-card .pg-tooltip span {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  letter-spacing: normal;
+  color: #fff;
+  text-align: left;
+}
+
+/* ── Book wrapper / sizing ── */
+.ab-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  transition: transform 0.25s ease;
+}
+
+.ab-card .ab-wrap {
+  height: min(92%, 420px);
+}
+
+.ab-modal .ab-wrap {
+  width: min(88vw, 820px);
+  height: min(72vh, 620px);
+}
+
+.ab-flip-outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.4));
+}
+
+/* StPageFlip draws the curl/shadow itself on the page elements we hand
+   it — we only need to style the page content. */
+.ab-page {
+  overflow: hidden;
+  background: #f3ead9;
+}
+
+.ab-page img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Flattened Figma renders carry a baked-in drop shadow/radius at their
+   edges — scale in slightly to crop that bleed off. */
+.ab-page-img--crop {
+  transform: scale(1.05);
+  transform-origin: center;
+}
+
+/* ── Interactive controls (modal) ── */
+.ab-controls {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+}
+
+.ab-controls button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.ab-controls button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.ab-controls button:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+.ab-counter {
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.75);
+  min-width: 52px;
+  text-align: center;
+}
+
+/* ── Modal ── */
+.ab-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.ab-modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ab-modal-close {
+  position: absolute;
+  top: -46px;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.ab-modal-close:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+/* ── Responsive ── */
+@media (max-width: 680px) {
+  .ab-card {
+    padding: 16px;
+  }
+
+  .ab-modal .ab-wrap {
+    width: min(92vw, 480px);
+    height: min(64vh, 480px);
+  }
+
+  .ab-modal-close {
+    top: -40px;
+  }
+}

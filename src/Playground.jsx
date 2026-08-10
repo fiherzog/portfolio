@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import Nav from './Nav';
+import AppleBook from './AppleBook';
 import './Playground.css';
 
 import imgRiso        from './assets/riso.jpg';
@@ -161,7 +162,7 @@ export default function Playground() {
               <Img src={imgRiso} ratio="427/573" label={risoLabel} />
             </div>
             <div className="pg-col-wide">
-              <ComingSoon stretch />
+              <AppleBook />
             </div>
           </div>
 
