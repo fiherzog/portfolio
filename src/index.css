@@ -1,3 +1,9 @@
+:root {
+  /* Shared easing for hover/lift transitions — a smoother, more deliberate
+     deceleration than the browser's default "ease". */
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -13,4 +19,13 @@ body {
 
 #root {
   min-height: 100vh;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
