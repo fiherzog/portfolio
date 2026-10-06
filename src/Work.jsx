@@ -167,7 +167,7 @@ export default function Work() {
             customImage={<BroadcastAscii height={321} />}
             meta="Spring 2026 | Design Engineer | Job"
             title="Center of Media Technology & Democracy"
-            titleHref="https://www.linkedin.com/company/penn-center-on-media-technology-and-democracy/"
+            titleHref="https://mediated.upenn.edu"
             description="Designed visual identity and full website redesign for UPenn academic center w/ logo, brand system, and multi-page site. Delivered production-ready HTML/CSS/JS with scroll animations, theme switching, and editorial layout system."
           />
           <ProjectCard
