@@ -3,17 +3,17 @@ import Nav from './Nav';
 import AppleBook from './AppleBook';
 import './Playground.css';
 
-import imgRiso        from './assets/riso.jpg';
-import imgPikachu     from './assets/pikachu.jpg';
-import imgAppleCraft  from './assets/applecraft.jpg';
-import imgKoifish     from './assets/koifish.jpg';
-import imgLuckycat    from './assets/luckycat.jpg';
-import imgBeads       from './assets/beads.jpg';
-import imgImg5500     from './assets/img5500.jpg';
-import imgCatcoasters from './assets/catcoasters.jpg';
-import imgImg4915     from './assets/img4915.jpg';
-import imgImg1852     from './assets/img1852.jpg';
-import imgBoloButton  from './assets/bolobutton.jpg';
+import imgRiso        from './assets/riso.webp';
+import imgPikachu     from './assets/pikachu.webp';
+import imgAppleCraft  from './assets/applecraft.webp';
+import imgKoifish     from './assets/koifish.webp';
+import imgLuckycat    from './assets/luckycat.webp';
+import imgBeads       from './assets/beads.webp';
+import imgImg5500     from './assets/img5500.webp';
+import imgCatcoasters from './assets/catcoasters.webp';
+import imgImg4915     from './assets/img4915.webp';
+import imgImg1852     from './assets/img1852.webp';
+import imgBoloButton  from './assets/bolobutton.webp';
 
 /* ── Cursor-following tooltip labels ── */
 
@@ -125,7 +125,7 @@ function Img({ src, alt = '', ratio, label }) {
       onMouseEnter={label ? handleMouseEnter : undefined}
       onMouseLeave={label ? handleMouseLeave : undefined}
     >
-      <img src={src} alt={alt} />
+      <img src={src} alt={alt} loading="lazy" decoding="async" />
       {label && (
         <span ref={tooltipRef} className={`pg-tooltip${hovered ? ' pg-tooltip--visible' : ''}`}>
           {label}

@@ -2,10 +2,10 @@ import Nav from './Nav';
 import { VineRight, VineLeft } from './Vine';
 import './About.css';
 
-import imgFiona from './assets/fiona.jpg';
-import imgPhoto1 from './assets/photo1.jpg';
-import imgPhoto2 from './assets/photo2.jpg';
-import imgPhoto3 from './assets/photo3.jpg';
+import imgFiona from './assets/fiona.webp';
+import imgPhoto1 from './assets/photo1.webp';
+import imgPhoto2 from './assets/photo2.webp';
+import imgPhoto3 from './assets/photo3.webp';
 import imgLinkedin from './assets/linkedin.svg';
 import imgInstagram from './assets/instagram.svg';
 import imgGithub from './assets/github.svg';
@@ -32,7 +32,7 @@ export default function About() {
         {/* ── Introduction ── */}
         <section className="intro">
           <div className="intro-photo">
-            <img src={imgFiona} alt="Fiona Herzog" />
+            <img src={imgFiona} alt="Fiona Herzog" decoding="async" />
           </div>
           <div className="intro-content">
             <p className="intro-text">
@@ -143,9 +143,9 @@ export default function About() {
         <section className="photos">
           <VineLeft className="vine-left" />
           <div className="photos-grid">
-            <img src={imgPhoto1} alt="" className="photo" />
-            <img src={imgPhoto2} alt="" className="photo" />
-            <img src={imgPhoto3} alt="" className="photo" />
+            <img src={imgPhoto1} alt="" className="photo" loading="lazy" decoding="async" />
+            <img src={imgPhoto2} alt="" className="photo" loading="lazy" decoding="async" />
+            <img src={imgPhoto3} alt="" className="photo" loading="lazy" decoding="async" />
           </div>
         </section>
 

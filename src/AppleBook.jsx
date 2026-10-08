@@ -2,18 +2,18 @@ import { useEffect, useRef, useState } from 'react';
 import { PageFlip } from 'page-flip';
 import './AppleBook.css';
 
-import pageCover from './assets/apple-book/01-cover.jpg';
-import pageContents from './assets/apple-book/02-contents.jpg';
-import pageDedication from './assets/apple-book/03-dedication.jpg';
-import pageChapterIntro from './assets/apple-book/04-chapter-intro.jpg';
-import pagePerfectApple from './assets/apple-book/05-perfect-apple.jpg';
-import pageAppleOneTitle from './assets/apple-book/06-apple-one-title.jpg';
-import pageAppleOneStory from './assets/apple-book/07-apple-one-story.jpg';
-import pageAppleTwoTitle from './assets/apple-book/08-apple-two-title.jpg';
-import pageAppleTwoStory from './assets/apple-book/09-apple-two-story.jpg';
-import pageAppleThreeTitle from './assets/apple-book/10-apple-three-title.jpg';
-import pageAppleThreeStory from './assets/apple-book/11-apple-three-story.jpg';
-import pageBackCover from './assets/apple-book/12-back-cover.jpg';
+import pageCover from './assets/apple-book/01-cover.webp';
+import pageContents from './assets/apple-book/02-contents.webp';
+import pageDedication from './assets/apple-book/03-dedication.webp';
+import pageChapterIntro from './assets/apple-book/04-chapter-intro.webp';
+import pagePerfectApple from './assets/apple-book/05-perfect-apple.webp';
+import pageAppleOneTitle from './assets/apple-book/06-apple-one-title.webp';
+import pageAppleOneStory from './assets/apple-book/07-apple-one-story.webp';
+import pageAppleTwoTitle from './assets/apple-book/08-apple-two-title.webp';
+import pageAppleTwoStory from './assets/apple-book/09-apple-two-story.webp';
+import pageAppleThreeTitle from './assets/apple-book/10-apple-three-title.webp';
+import pageAppleThreeStory from './assets/apple-book/11-apple-three-story.webp';
+import pageBackCover from './assets/apple-book/12-back-cover.webp';
 
 // Plain sequential pages — StPageFlip pairs them into spreads itself
 // (via showCover) and does the actual paper-curl rendering, so there's
@@ -136,7 +136,8 @@ function FlipBook({ interactive = false, autoPlay = false }) {
     setPageCount(flip.getPageCount());
     flipRef.current = flip;
 
-    if (autoPlay) {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (autoPlay && !reducedMotion) {
       autoplayTimer.current = setInterval(() => {
         const cur = flip.getCurrentPageIndex();
         if (cur >= flip.getPageCount() - 1) {

@@ -7,7 +7,23 @@ export default function BroadcastAscii({ height }) {
   useEffect(() => {
     const stage = stageRef.current;
     const el = preRef.current;
-    if (!stage || !el) return;
+    if (!stage || !el) return undefined;
+
+    // This redraws a 57x29 character grid every animation frame — real
+    // work the main thread shouldn't be doing while the card is scrolled
+    // out of view or the tab is in the background. Track both so the loop
+    // (started below) can bail out immediately instead of burning frames.
+    let visible = true;
+    let pageVisible = document.visibilityState === 'visible';
+    const io = new IntersectionObserver(
+      (entries) => { visible = entries[0].isIntersecting; },
+      { threshold: 0 }
+    );
+    io.observe(stage);
+    const onVisibilityChange = () => { pageVisible = document.visibilityState === 'visible'; };
+    document.addEventListener('visibilitychange', onVisibilityChange);
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const W = 57, H = 29;
     const CX = Math.floor(W / 2), CY = Math.floor(H / 2);
@@ -138,7 +154,21 @@ export default function BroadcastAscii({ height }) {
       el.textContent = grid.map(r => r.join('')).join('\n');
     };
 
+    if (reducedMotion) {
+      render(0);
+      return () => {
+        io.disconnect();
+        document.removeEventListener('visibilitychange', onVisibilityChange);
+        stage.removeEventListener('mousemove', onMouseMove);
+        stage.removeEventListener('touchmove', onTouchMove);
+      };
+    }
+
     const loop = (t) => {
+      if (!visible || !pageVisible) {
+        rafId = requestAnimationFrame(loop);
+        return;
+      }
       vx *= 0.82; vy *= 0.82;
       animMx += (mx - animMx) * 0.055;
       animMy += (my - animMy) * 0.055;
@@ -150,6 +180,8 @@ export default function BroadcastAscii({ height }) {
 
     return () => {
       cancelAnimationFrame(rafId);
+      io.disconnect();
+      document.removeEventListener('visibilitychange', onVisibilityChange);
       stage.removeEventListener('mousemove', onMouseMove);
       stage.removeEventListener('touchmove', onTouchMove);
     };

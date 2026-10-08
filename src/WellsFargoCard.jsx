@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import './WellsFargoCard.css';
-import cardImg from './assets/Autograph.png';
+import cardImg from './assets/Autograph.webp';
 
 export default function WellsFargoCard({ height = 250 }) {
   const stageRef = useRef(null);
@@ -11,13 +11,31 @@ export default function WellsFargoCard({ height = 250 }) {
     const stage = stageRef.current;
     const card = cardRef.current;
     const shine = shineRef.current;
-    if (!stage || !card || !shine) return;
+    if (!stage || !card || !shine) return undefined;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+      card.style.filter = 'drop-shadow(0px 22px 36px rgba(0,0,0,0.5))';
+      shine.style.background = 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0) 42%)';
+      return undefined;
+    }
 
     let mx = 0.5, my = 0.5;
     let px = 0.5, py = 0.5;
     let hover = 0, hoverTarget = 0;
     let idleT = Math.random() * 100;
     let rafId;
+
+    // The idle drift and hover response repaint a filter + gradient every
+    // frame — real cost the browser shouldn't pay while this card sits
+    // off-screen in the grid. Skip the work (but keep the loop scheduled,
+    // so it resumes instantly) once it scrolls out of view.
+    let visible = true;
+    const io = new IntersectionObserver(
+      (entries) => { visible = entries[0].isIntersecting; },
+      { threshold: 0 }
+    );
+    io.observe(stage);
 
     const onMove = (e) => {
       const r = stage.getBoundingClientRect();
@@ -31,6 +49,11 @@ export default function WellsFargoCard({ height = 250 }) {
     stage.addEventListener('mouseleave', onLeave);
 
     const loop = () => {
+      if (!visible) {
+        rafId = requestAnimationFrame(loop);
+        return;
+      }
+
       idleT += 0.024;
       hover += (hoverTarget - hover) * 0.06;
 
@@ -59,6 +82,7 @@ export default function WellsFargoCard({ height = 250 }) {
 
     return () => {
       cancelAnimationFrame(rafId);
+      io.disconnect();
       stage.removeEventListener('mousemove', onMove);
       stage.removeEventListener('mouseleave', onLeave);
     };

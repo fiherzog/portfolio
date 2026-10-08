@@ -1,37 +1,82 @@
+import { useEffect, useRef, useState } from 'react';
 import './Work.css';
 import Nav from './Nav';
 import BroadcastAscii from './BroadcastAscii';
 import WellsFargoCard from './WellsFargoCard';
-import imgTechnicalLy from './assets/technical.ly.gif';
-import imgStride from './assets/6fb80f6da4ca8760bfd70495e32e0d792071f288.png';
-import imgPentup from './assets/c52614be57450f8c6e1fa96ffabf4e79b24ce4fc.png';
-import imgAnalysis from './assets/7f5ad0fab4208493f8350635e5ab8eb7f87994b0.png';
-import imgResearch from './assets/8758e72ecde3286b6144b7b8c12d40bc41529f48.png';
-import imgQuickFlicks from './assets/a523302f0ee1de7840dfe472e6b4ed4a78510d52.png';
-import imgFox from './assets/fox.gif';
+import videoTechnicalLy from './assets/technical.ly.mp4';
+import posterTechnicalLy from './assets/technical.ly-poster.webp';
+import imgStride from './assets/6fb80f6da4ca8760bfd70495e32e0d792071f288.webp';
+import imgPentup from './assets/c52614be57450f8c6e1fa96ffabf4e79b24ce4fc.webp';
+import imgAnalysis from './assets/7f5ad0fab4208493f8350635e5ab8eb7f87994b0.webp';
+import imgResearch from './assets/8758e72ecde3286b6144b7b8c12d40bc41529f48.webp';
+import videoFox from './assets/fox.mp4';
+import posterFox from './assets/fox-poster.webp';
 import videoAssignments from './assets/assignments-editor.mp4';
+import posterAssignments from './assets/assignments-editor-poster.webp';
 import videoQuickFlicks from './assets/quickflicks.mp4';
+import posterQuickFlicks from './assets/quickflicks-poster.webp';
 
-function ProjectCard({ image, video, imageFit = 'cover', imageHeight, imageAspectRatio, meta, title, titleHref, imageHref, description, imageStyle, customImage }) {
+// Below-the-fold project videos shouldn't force a multi-megabyte download
+// before the visitor ever scrolls to them. Defer fetching (and autoplay)
+// until the card is nearly in view, and skip autoplay entirely for
+// prefers-reduced-motion — the poster frame still tells the story.
+function LazyVideo({ src, poster, style }) {
+  const ref = useRef(null);
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || typeof IntersectionObserver === 'undefined') {
+      setActive(true);
+      return undefined;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setActive(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: '300px' }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const reducedMotion =
+    typeof window !== 'undefined' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  return (
+    <video
+      ref={ref}
+      className="project-img"
+      style={style}
+      poster={poster}
+      src={active ? src : undefined}
+      preload="none"
+      autoPlay={active && !reducedMotion}
+      loop
+      muted
+      playsInline
+    />
+  );
+}
+
+function ProjectCard({ image, video, poster, imageFit = 'cover', imageHeight, imageAspectRatio, meta, title, titleHref, imageHref, description, imageStyle, customImage }) {
   const imageContainerStyle = imageAspectRatio
     ? { aspectRatio: imageAspectRatio }
     : { height: imageHeight };
   const href = imageHref || titleHref;
 
   const media = video ? (
-    <video
-      src={video}
-      className="project-img"
-      style={{ objectFit: 'cover' }}
-      autoPlay
-      loop
-      muted
-      playsInline
-    />
+    <LazyVideo src={video} poster={poster} style={{ objectFit: 'cover', ...imageStyle }} />
   ) : image ? (
     <img
       src={image}
       alt=""
+      loading="lazy"
+      decoding="async"
       className="project-img"
       style={{ objectFit: imageFit, ...imageStyle }}
     />
@@ -94,9 +139,9 @@ export default function Work() {
             description="Developing credit card products backed by data-driven analysis in SAS."
           />
           <ProjectCard
-            image={imgTechnicalLy}
+            video={videoTechnicalLy}
+            poster={posterTechnicalLy}
             imageAspectRatio="417/250"
-            imageFit="cover"
             imageStyle={{ transform: 'scale(1.35)', transformOrigin: 'center center' }}
             meta="September 2024 - May 2025 | Product Management Internship"
             title="Technical.ly Media"
@@ -122,6 +167,7 @@ export default function Work() {
           />
           <ProjectCard
             video={videoAssignments}
+            poster={posterAssignments}
             imageAspectRatio="432/386"
             titleHref="https://www.34st.com/staff/fiona_herzog"
             meta="Fall 2023 - Present | Executive Board"
@@ -133,9 +179,9 @@ export default function Work() {
         {/* Column 2 */}
         <div className="work-col">
           <ProjectCard
-            image={imgFox}
+            video={videoFox}
+            poster={posterFox}
             imageAspectRatio="417/235"
-            imageFit="cover"
             meta="Summer 2025 | Internship"
             title="Fox Tech"
             description="Owned 0→1 design and development of a custom Slack app that streamlined editorial feedback and approval workflows for Fox Sports' personalized newsletters."
@@ -153,6 +199,7 @@ export default function Work() {
           />
           <ProjectCard
             video={videoQuickFlicks}
+            poster={posterQuickFlicks}
             imageAspectRatio="884/1474"
             meta="Spring 2024 | Project | Product Designer"
             title="QuickFlicks"
