@@ -8,10 +8,8 @@ import imgStride from './assets/6fb80f6da4ca8760bfd70495e32e0d792071f288.png';
 import imgPentup from './assets/c52614be57450f8c6e1fa96ffabf4e79b24ce4fc.png';
 import imgAnalysis from './assets/7f5ad0fab4208493f8350635e5ab8eb7f87994b0.png';
 import imgResearch from './assets/8758e72ecde3286b6144b7b8c12d40bc41529f48.png';
-import imgQuickFlicks from './assets/a523302f0ee1de7840dfe472e6b4ed4a78510d52.png';
 import imgFox from './assets/fox.gif';
 import videoAssignments from './assets/assignments-editor.mp4';
-import videoQuickFlicks from './assets/quickflicks.mp4';
 
 function ProjectCard({ image, video, imageFit = 'cover', imageHeight, imageAspectRatio, meta, title, titleHref, imageHref, description, imageStyle, customImage }) {
   const imageContainerStyle = imageAspectRatio
@@ -131,14 +129,16 @@ export default function Work() {
             imageHref="https://www.figma.com/deck/YZNnxjdtHuQ8gsYnHGjR7S"
             description="A deployed digital experience that is anonymous & authenticated for Penn students to express, manage, and release their pent-up emotions."
           />
-          <ProjectCard
-            video={videoAssignments}
-            imageAspectRatio="432/386"
-            titleHref="https://www.34st.com/staff/fiona_herzog"
-            meta="Fall 2023 - Present | Executive Board"
-            title="Assignments Editor @ 34th Street Magazine"
-            description="Author 20+ articles on film, culture, & topical events. Oversee cross-team collaboration with S&P, copy, and design departments, ensuring cohesive branding and alignment between editorial and promotional efforts."
-          />
+          <div className="modeling">
+            <h2 className="project-title">Modeling</h2>
+            <ul className="modeling-list">
+              <li>Nuuly (URBN)</li>
+              <li><a href="https://www.instagram.com/roomshop/" target="_blank" rel="noreferrer">The Room Shop</a></li>
+              <li><a href="https://www.thevagabondsverse.org" target="_blank" rel="noreferrer">The Vagabond’s Verse</a></li>
+              <li><a href="https://www.bokeumjeon.com/" target="_blank" rel="noreferrer">Bokeum Jeon</a></li>
+              <li><a href="https://www.instagram.com/makingtimeisrad/" target="_blank" rel="noreferrer">Making Time</a></li>
+            </ul>
+          </div>
         </div>
 
         {/* Column 2 */}
@@ -163,12 +163,12 @@ export default function Work() {
             description="Built an NLP pipeline to process 5 years of articles using n-grams, KWIC analysis, frequency analysis and more on language patterns in the magazine."
           />
           <ProjectCard
-            video={videoQuickFlicks}
-            imageAspectRatio="884/1474"
-            meta="Spring 2024 | Project | Product Designer"
-            title="QuickFlicks"
-            titleHref="https://quickflicks.onrender.com/play"
-            description="Conceptualized and designed a film trivia game inspired by NYT Connections, creating engaging interaction flows, visual hierarchy, and grouping mechanics to enhance user experience and test players' movie knowledge."
+            video={videoAssignments}
+            imageAspectRatio="432/386"
+            titleHref="https://www.34st.com/staff/fiona_herzog"
+            meta="Fall 2023 - Present | Executive Board"
+            title="Assignments Editor @ 34th Street Magazine"
+            description="Author 20+ articles on film, culture, & topical events. Oversee cross-team collaboration with S&P, copy, and design departments, ensuring cohesive branding and alignment between editorial and promotional efforts."
           />
         </div>
 
@@ -206,16 +206,6 @@ export default function Work() {
             titleHref="https://pricelab.sas.upenn.edu/projects/minor-lables"
             description="Merged, cleaned, and analyzed music datasets (35K+ records) using Python; applied clustering, sentiment analysis, and network analysis to identify trends in genre evolution, with visualizations of temporal dynamics."
           />
-          <div className="modeling">
-            <h2 className="project-title">Modeling</h2>
-            <ul className="modeling-list">
-              <li>Nuuly (URBN)</li>
-              <li><a href="https://www.instagram.com/roomshop/" target="_blank" rel="noreferrer">The Room Shop</a></li>
-              <li><a href="https://www.thevagabondsverse.org" target="_blank" rel="noreferrer">The Vagabond’s Verse</a></li>
-              <li><a href="https://www.bokeumjeon.com/" target="_blank" rel="noreferrer">Bokeum Jeon</a></li>
-              <li><a href="https://www.instagram.com/makingtimeisrad/" target="_blank" rel="noreferrer">Making Time</a></li>
-            </ul>
-          </div>
         </div>
       </div>
     </div>
