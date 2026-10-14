@@ -194,12 +194,12 @@ export default function Playground() {
               <div className="pg-row">
                 <div className="pg-col">
                   <Img src={imgAppleCraft} ratio="426/379" label={appleLabel} />
-                  <Img src={imgImg4915}    ratio="426/495" label={img4915Label} />
+                  <Img src={imgImg4915}    ratio="426/559" label={img4915Label} />
                 </div>
                 <div className="pg-col">
                   <Img
                     src={imgBoloButton}
-                    ratio="426/538"
+                    ratio="941/1295"
                     label={boloLabel}
                     href="https://www.eventbrite.com/e/intro-to-lasercutting-make-a-lasercut-button-bolo-tie-tickets-2002573842270"
                   />
