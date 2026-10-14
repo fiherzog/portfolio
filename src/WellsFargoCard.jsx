@@ -118,7 +118,6 @@ export default function WellsFargoCard({ height = 250 }) {
               pointerEvents: 'none',
             }}
           >
-            <div className="wf-shimmer" />
           </div>
           <img
             src={cardImg}

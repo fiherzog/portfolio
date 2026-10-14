@@ -2,7 +2,8 @@ import './Work.css';
 import Nav from './Nav';
 import BroadcastAscii from './BroadcastAscii';
 import WellsFargoCard from './WellsFargoCard';
-import imgTechnicalLy from './assets/technical.ly.gif';
+import Apple3D from './Apple3D';
+import TechnicallyCard from './TechnicallyCard';
 import imgStride from './assets/6fb80f6da4ca8760bfd70495e32e0d792071f288.png';
 import imgPentup from './assets/c52614be57450f8c6e1fa96ffabf4e79b24ce4fc.png';
 import imgAnalysis from './assets/7f5ad0fab4208493f8350635e5ab8eb7f87994b0.png';
@@ -27,6 +28,14 @@ function ProjectCard({ image, video, imageFit = 'cover', imageHeight, imageAspec
       loop
       muted
       playsInline
+      preload="auto"
+      ref={(el) => {
+        // React doesn't reliably set the `muted` attribute, which blocks autoplay in Safari/Firefox
+        if (el) {
+          el.muted = true;
+          el.play().catch(() => {});
+        }
+      }}
     />
   ) : image ? (
     <img
@@ -78,11 +87,14 @@ export default function Work() {
     <div className="work-page">
       <Nav />
 
-      <p className="bio">
-        fiona herzog is a <em>communications</em> &amp; <em>computer science</em> student passionate
-        about learning tools to create meaningful projects. below are projects spanning product
-        development, project management, and data analysis.
-      </p>
+      <section className="hero">
+        <Apple3D width={240} height={280} />
+        <p className="bio">
+          fiona herzog is a <em>communications</em> &amp; <em>computer science</em> student passionate
+          about learning tools to create meaningful projects. below are projects spanning product
+          development, project management, and data analysis.
+        </p>
+      </section>
 
       <div className="work-grid">
         {/* Column 1 */}
@@ -94,10 +106,7 @@ export default function Work() {
             description="Developing credit card products backed by data-driven analysis in SAS."
           />
           <ProjectCard
-            image={imgTechnicalLy}
-            imageAspectRatio="417/250"
-            imageFit="cover"
-            imageStyle={{ transform: 'scale(1.35)', transformOrigin: 'center center' }}
+            customImage={<TechnicallyCard />}
             meta="September 2024 - May 2025 | Product Management Internship"
             title="Technical.ly Media"
             titleHref="https://www.figma.com/design/6yoTBLEsRoOg3Yr34SfH8R/Technically-Designs?node-id=0-1&t=0pwdbhzCQKvP3g7q-1"
@@ -114,6 +123,7 @@ export default function Work() {
             image={imgPentup}
             imageAspectRatio="417/372"
             imageFit="cover"
+            imageStyle={{ objectPosition: 'center 32%' }}
             meta="Winter 2025 | Project | Product Manager"
             title="Pent-Up"
             titleHref="https://spark-project-pentup.netlify.app"
@@ -195,6 +205,16 @@ export default function Work() {
             titleHref="https://pricelab.sas.upenn.edu/projects/minor-lables"
             description="Merged, cleaned, and analyzed music datasets (35K+ records) using Python; applied clustering, sentiment analysis, and network analysis to identify trends in genre evolution, with visualizations of temporal dynamics."
           />
+          <div className="modeling">
+            <h2 className="project-title">Modeling</h2>
+            <ul className="modeling-list">
+              <li>Nuuly (URBN)</li>
+              <li><a href="https://www.instagram.com/roomshop/" target="_blank" rel="noreferrer">The Room Shop</a></li>
+              <li><a href="https://www.thevagabondsverse.org" target="_blank" rel="noreferrer">The Vagabond’s Verse</a></li>
+              <li><a href="https://www.bokeumjeon.com/" target="_blank" rel="noreferrer">Bokeum Jeon</a></li>
+              <li><a href="https://www.instagram.com/makingtimeisrad/" target="_blank" rel="noreferrer">Making Time</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
