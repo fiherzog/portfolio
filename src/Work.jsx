@@ -90,8 +90,10 @@ export default function Work() {
       <section className="hero">
         <Apple3D width={240} height={280} />
         <p className="bio">
-          fiona herzog is a <em>communications</em> &amp; <em>computer science</em> student passionate
-          about learning tools to create meaningful projects. below are projects spanning product
+          fiona herzog is a <em>communications</em> &amp; <em>computer science</em> student endlessly
+          curious about how we learn, and how what we learn becomes something we can share. she
+          picks up new tools to turn that
+          curiosity into meaningful projects. here&rsquo;s a look at that work, spanning product
           development, project management, and data analysis.
         </p>
       </section>
