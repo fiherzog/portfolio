@@ -10,8 +10,9 @@ import imgAnalysis from './assets/7f5ad0fab4208493f8350635e5ab8eb7f87994b0.png';
 import imgResearch from './assets/8758e72ecde3286b6144b7b8c12d40bc41529f48.png';
 import imgFox from './assets/fox.gif';
 import videoAssignments from './assets/assignments-editor.mp4';
+import posterAssignments from './assets/assignments-poster.jpg';
 
-function ProjectCard({ image, video, imageFit = 'cover', imageHeight, imageAspectRatio, meta, title, titleHref, imageHref, description, imageStyle, customImage }) {
+function ProjectCard({ image, video, poster, imageFit = 'cover', imageHeight, imageAspectRatio, meta, title, titleHref, imageHref, description, imageStyle, customImage }) {
   const imageContainerStyle = imageAspectRatio
     ? { aspectRatio: imageAspectRatio }
     : { height: imageHeight };
@@ -27,11 +28,17 @@ function ProjectCard({ image, video, imageFit = 'cover', imageHeight, imageAspec
       muted
       playsInline
       preload="auto"
+      poster={poster}
       ref={(el) => {
-        // React doesn't reliably set the `muted` attribute, which blocks autoplay in Safari/Firefox
+        // React doesn't reliably set the `muted` attribute, which blocks autoplay in Safari/Firefox.
+        // If the browser still blocks autoplay, start on first hover/tap instead.
         if (el) {
           el.muted = true;
-          el.play().catch(() => {});
+          el.play().catch(() => {
+            const start = () => el.play().catch(() => {});
+            el.addEventListener('pointerenter', start, { once: true });
+            el.addEventListener('click', start, { once: true });
+          });
         }
       }}
     />
@@ -164,6 +171,7 @@ export default function Work() {
           />
           <ProjectCard
             video={videoAssignments}
+            poster={posterAssignments}
             imageAspectRatio="432/386"
             titleHref="https://www.34st.com/staff/fiona_herzog"
             meta="Fall 2023 - Present | Executive Board"
