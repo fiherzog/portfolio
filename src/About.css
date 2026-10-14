@@ -71,7 +71,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Lora', serif;
   font-weight: 500;
   font-size: 25px;
   color: #153317;
@@ -134,7 +134,7 @@
 }
 
 .toolkit-col li {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Lora', serif;
   font-weight: 500;
   font-size: 18px;
   color: #153317;
@@ -164,7 +164,7 @@
 }
 
 .experience-role {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Lora', serif;
   font-weight: 500;
   font-size: 18px;
   color: #153317;

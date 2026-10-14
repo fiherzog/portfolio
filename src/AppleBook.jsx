@@ -47,6 +47,8 @@ const appleBookLabel = (
       </span>
     </p>
     <p style={{ fontStyle: 'normal', fontWeight: 400 }}>Designed by me.</p>
+    <p>&nbsp;</p>
+    <p style={{ fontStyle: 'italic', fontWeight: 400 }}>Also created as a physical bound book.</p>
   </>
 );
 

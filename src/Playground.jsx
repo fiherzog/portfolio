@@ -44,6 +44,17 @@ const boloLabel = (
       <span style={{ fontStyle: 'normal', fontWeight: 400 }}>:</span>
     </p>
     <p style={{ fontStyle: 'normal', fontWeight: 400 }}>Laser-cut Eucalyptus &amp; Para-cord.</p>
+    <p>&nbsp;</p>
+    <p>
+      <span style={{ fontStyle: 'normal', fontWeight: 700 }}>Workshop</span>
+      <span style={{ fontStyle: 'normal', fontWeight: 400 }}>:</span>
+    </p>
+    <p style={{ fontStyle: 'normal', fontWeight: 400 }}>
+      Hosted a laser-cutting workshop at the Venture Lab at Penn.
+    </p>
+    <p style={{ fontStyle: 'normal', fontWeight: 400, textDecoration: 'underline' }}>
+      Click to view event &#8599;
+    </p>
   </>
 );
 
@@ -99,7 +110,7 @@ const img4915Label = (
   </>
 );
 
-function Img({ src, alt = '', ratio, label }) {
+function Img({ src, alt = '', ratio, label, href, imgStyle }) {
   const tooltipRef = useRef(null);
   const rafRef     = useRef(null);
   const [hovered, setHovered] = useState(false);
@@ -125,7 +136,13 @@ function Img({ src, alt = '', ratio, label }) {
       onMouseEnter={label ? handleMouseEnter : undefined}
       onMouseLeave={label ? handleMouseLeave : undefined}
     >
-      <img src={src} alt={alt} />
+      {href ? (
+        <a href={href} target="_blank" rel="noreferrer" className="pg-img-link">
+          <img src={src} alt={alt} style={imgStyle} />
+        </a>
+      ) : (
+        <img src={src} alt={alt} style={imgStyle} />
+      )}
       {label && (
         <span ref={tooltipRef} className={`pg-tooltip${hovered ? ' pg-tooltip--visible' : ''}`}>
           {label}
@@ -159,7 +176,12 @@ export default function Playground() {
           {/* Row 1: riso (col 1) | wide coming soon (cols 2–3) */}
           <div className="pg-row">
             <div className="pg-col">
-              <Img src={imgRiso} ratio="427/573" label={risoLabel} />
+              <Img
+                src={imgRiso}
+                ratio="427/573"
+                label={risoLabel}
+                imgStyle={{ filter: 'brightness(1.2) contrast(1.04) saturate(1.1)' }}
+              />
             </div>
             <div className="pg-col-wide">
               <AppleBook />
@@ -175,7 +197,12 @@ export default function Playground() {
                   <Img src={imgImg4915}    ratio="426/495" label={img4915Label} />
                 </div>
                 <div className="pg-col">
-                  <Img src={imgBoloButton} ratio="426/538" label={boloLabel} />
+                  <Img
+                    src={imgBoloButton}
+                    ratio="426/538"
+                    label={boloLabel}
+                    href="https://www.eventbrite.com/e/intro-to-lasercutting-make-a-lasercut-button-bolo-tie-tickets-2002573842270"
+                  />
                   <Img src={imgBeads}      ratio="426/352" label={beadsLabel} />
                 </div>
               </div>
