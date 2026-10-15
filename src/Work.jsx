@@ -204,7 +204,16 @@ export default function Work() {
             titleHref="https://www.34st.com/staff/fiona_herzog"
             meta="Fall 2023 - Present | Executive Board"
             title="Assignments Editor @ 34th Street Magazine"
-            description="Author 20+ articles on film, culture, & topical events. Oversee cross-team collaboration with S&P, copy, and design departments, ensuring cohesive branding and alignment between editorial and promotional efforts."
+            description={
+              <>
+                Author 20+ articles on film, culture, & topical events. Oversee cross-team
+                collaboration with S&P, copy, and design departments, ensuring cohesive branding and
+                alignment between editorial and promotional efforts.
+                <br />
+                <br />
+                (Interviewed John Cena, Zac Efron, &amp; Emerald Fennell!)
+              </>
+            }
           />
         </div>
 
