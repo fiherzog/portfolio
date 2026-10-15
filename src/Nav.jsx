@@ -12,7 +12,7 @@ export default function Nav() {
       </div>
       <Link to="/" className="nav-name">fiona!</Link>
       <div className="nav-links">
-        <Link to="/work" className={`nav-link${pathname.startsWith('/work') || pathname === '/' ? ' nav-link--active' : ''}`}>work</Link>
+        <Link to="/work" className={`nav-link${pathname === '/work' || pathname === '/' ? ' nav-link--active' : ''}`}>work</Link>
         <Link to="/blog" className={`nav-link${pathname === '/blog' ? ' nav-link--active' : ''}`}>blog</Link>
         <Link to="/playground" className={`nav-link${pathname === '/playground' ? ' nav-link--active' : ''}`}>playground</Link>
         <Link to="/about" className={`nav-link${pathname === '/about' ? ' nav-link--active' : ''}`}>about</Link>

@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import './Work.css';
-import './CaseStudy.css';
 import ModelingGallery from './ModelingGallery';
 import Nav from './Nav';
 import BroadcastAscii from './BroadcastAscii';
@@ -16,7 +14,7 @@ import imgFox from './assets/fox.gif';
 import videoAssignments from './assets/assignments-editor.mp4';
 import posterAssignments from './assets/assignments-poster.jpg';
 
-function ProjectCard({ image, video, poster, imageFit = 'cover', imageHeight, imageAspectRatio, meta, title, titleHref, imageHref, description, imageStyle, customImage, to }) {
+function ProjectCard({ image, video, poster, imageFit = 'cover', imageHeight, imageAspectRatio, meta, title, titleHref, imageHref, description, imageStyle, customImage }) {
   const imageContainerStyle = imageAspectRatio
     ? { aspectRatio: imageAspectRatio }
     : { height: imageHeight };
@@ -60,11 +58,7 @@ function ProjectCard({ image, video, poster, imageFit = 'cover', imageHeight, im
   return (
     <div className="project-card">
       {customImage ? (
-        to ? (
-          <Link to={to} className="project-image-custom" aria-label={`${title}: read the case study`}>
-            {customImage}
-          </Link>
-        ) : href ? (
+        href ? (
           <a href={href} target="_blank" rel="noreferrer" className="project-image-custom">
             {customImage}
           </a>
@@ -83,11 +77,7 @@ function ProjectCard({ image, video, poster, imageFit = 'cover', imageHeight, im
         </div>
       )}
       <div className="project-meta">{meta}</div>
-      {to ? (
-        <Link to={to} className="project-title project-title--link">
-          {title}
-        </Link>
-      ) : titleHref ? (
+      {titleHref ? (
         <a href={titleHref} target="_blank" rel="noreferrer" className="project-title project-title--link">
           {title}
         </a>
@@ -95,11 +85,6 @@ function ProjectCard({ image, video, poster, imageFit = 'cover', imageHeight, im
         <h2 className="project-title">{title}</h2>
       )}
       <p className="project-description">{description}</p>
-      {to && (
-        <Link to={to} className="project-case-link">
-          read the case study →
-        </Link>
-      )}
     </div>
   );
 }
@@ -223,7 +208,7 @@ export default function Work() {
             customImage={<BroadcastAscii height={321} />}
             meta="Spring 2026 | Design Engineer | Job"
             title="Center of Media Technology & Democracy"
-            to="/work/mediated"
+            titleHref="https://mediated.upenn.edu"
             description="Designed visual identity and full website redesign for UPenn academic center w/ logo, brand system, and multi-page site. Delivered production-ready HTML/CSS/JS with scroll animations, theme switching, and editorial layout system."
           />
           <ProjectCard
