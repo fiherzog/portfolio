@@ -9,6 +9,7 @@ import img5 from './assets/modeling/model-5.jpg';
 import img6 from './assets/modeling/model-6.jpg';
 import img7 from './assets/modeling/model-7.jpg';
 import img8 from './assets/modeling/model-8.jpg';
+import img9 from './assets/modeling/model-9.jpg';
 
 /* Mixed aspect ratios so the grid reads as an editorial collage, not a uniform wall. */
 const PHOTOS = [
@@ -17,6 +18,7 @@ const PHOTOS = [
   { src: img7, ratio: '4 / 5', pos: 'center 20%' },
   { src: img1, ratio: '4 / 5', pos: 'center 35%' },
   { src: img8, ratio: '3 / 4', pos: 'center 35%' },
+  { src: img9, ratio: '2 / 3', pos: 'center 50%' },
   { src: img4, ratio: '2 / 3', pos: 'center 40%' },
   { src: img5, ratio: '3 / 4', pos: 'center 45%' },
   { src: img2, ratio: '1 / 1', pos: 'center 30%' },
