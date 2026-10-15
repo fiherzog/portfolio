@@ -1,0 +1,63 @@
+import { useEffect, useRef } from 'react';
+import './ModelingGallery.css';
+
+import img1 from './assets/modeling/model-1.jpg';
+import img2 from './assets/modeling/model-2.jpg';
+import img3 from './assets/modeling/model-3.jpg';
+import img4 from './assets/modeling/model-4.jpg';
+import img5 from './assets/modeling/model-5.jpg';
+import img6 from './assets/modeling/model-6.jpg';
+
+/* Mixed aspect ratios so the grid reads as an editorial collage, not a uniform wall. */
+const PHOTOS = [
+  { src: img3, ratio: '3 / 4', pos: 'center 30%' },
+  { src: img6, ratio: '1 / 1', pos: 'center 55%' },
+  { src: img1, ratio: '4 / 5', pos: 'center 35%' },
+  { src: img4, ratio: '2 / 3', pos: 'center 40%' },
+  { src: img5, ratio: '3 / 4', pos: 'center 45%' },
+  { src: img2, ratio: '1 / 1', pos: 'center 30%' },
+];
+
+export default function ModelingGallery({ onClose }) {
+  const closeRef = useRef(null);
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKey);
+    closeRef.current?.focus();
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      className="mg-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Modeling photo gallery"
+      onClick={onClose}
+    >
+      <div className="mg-panel" onClick={(e) => e.stopPropagation()}>
+        <div className="mg-header">
+          <h2 className="mg-title">Modeling</h2>
+          <button ref={closeRef} type="button" className="mg-close" onClick={onClose} aria-label="Close gallery">
+            &times;
+          </button>
+        </div>
+        <div className="mg-grid">
+          {PHOTOS.map((p, i) => (
+            <figure key={i} className="mg-item" style={{ aspectRatio: p.ratio }}>
+              <img src={p.src} alt="" loading="lazy" style={{ objectPosition: p.pos }} />
+            </figure>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import './Work.css';
+import ModelingGallery from './ModelingGallery';
 import Nav from './Nav';
 import BroadcastAscii from './BroadcastAscii';
 import WellsFargoCard from './WellsFargoCard';
@@ -88,6 +90,8 @@ function ProjectCard({ image, video, poster, imageFit = 'cover', imageHeight, im
 }
 
 export default function Work() {
+  const [galleryOpen, setGalleryOpen] = useState(false);
+
   return (
     <div className="work-page">
       <Nav />
@@ -137,7 +141,16 @@ export default function Work() {
             description="A deployed digital experience that is anonymous & authenticated for Penn students to express, manage, and release their pent-up emotions."
           />
           <div className="modeling">
-            <h2 className="project-title">Modeling</h2>
+            <h2 className="project-title">
+              <button
+                type="button"
+                className="project-title--link modeling-trigger"
+                onClick={() => setGalleryOpen(true)}
+                aria-haspopup="dialog"
+              >
+                Modeling
+              </button>
+            </h2>
             <ul className="modeling-list">
               <li>Nuuly (URBN)</li>
               <li><a href="https://www.instagram.com/roomshop/" target="_blank" rel="noreferrer">The Room Shop</a></li>
@@ -216,6 +229,7 @@ export default function Work() {
           />
         </div>
       </div>
+      {galleryOpen && <ModelingGallery onClose={() => setGalleryOpen(false)} />}
     </div>
   );
 }
