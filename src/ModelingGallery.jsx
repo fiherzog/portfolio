@@ -10,17 +10,29 @@ import img6 from './assets/modeling/model-6.jpg';
 import img7 from './assets/modeling/model-7.jpg';
 import img8 from './assets/modeling/model-8.jpg';
 import img9 from './assets/modeling/model-9.jpg';
+import img10 from './assets/modeling/model-10.jpg';
+import img11 from './assets/modeling/model-11.jpg';
+import img12 from './assets/modeling/model-12.jpg';
+import img13 from './assets/modeling/model-13.jpg';
+import img14 from './assets/modeling/model-14.jpg';
+import img15 from './assets/modeling/model-15.jpg';
 
 /* Mixed aspect ratios so the grid reads as an editorial collage, not a uniform wall. */
 const PHOTOS = [
   { src: img3, ratio: '3 / 4', pos: 'center 30%' },
+  { src: img10, ratio: '2 / 3', pos: 'center 30%' },
   { src: img6, ratio: '1 / 1', pos: 'center 55%' },
+  { src: img13, ratio: '4 / 5', pos: 'center 45%' },
   { src: img7, ratio: '4 / 5', pos: 'center 20%' },
   { src: img1, ratio: '4 / 5', pos: 'center 35%' },
+  { src: img11, ratio: '2 / 3', pos: 'center 40%' },
   { src: img8, ratio: '3 / 4', pos: 'center 35%' },
+  { src: img14, ratio: '1 / 1', pos: 'center 35%' },
   { src: img9, ratio: '2 / 3', pos: 'center 50%' },
   { src: img4, ratio: '2 / 3', pos: 'center 40%' },
+  { src: img12, ratio: '3 / 4', pos: 'center 35%' },
   { src: img5, ratio: '3 / 4', pos: 'center 45%' },
+  { src: img15, ratio: '4 / 5', pos: 'center 30%' },
   { src: img2, ratio: '1 / 1', pos: 'center 30%' },
 ];
 
