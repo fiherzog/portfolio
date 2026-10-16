@@ -191,7 +191,8 @@ export default function Work() {
             title="Assignments Editor @ 34th Street Magazine"
             description={
               <>
-                Author 20+ articles on film, culture, & topical events. Oversee cross-team
+                Author 20+ articles on film, culture, & topical events. Developed the
+                writer training curriculum and ongoing development for 20+ writers each semester. Oversee cross-team
                 collaboration with S&P, copy, and design departments, ensuring cohesive branding and
                 alignment between editorial and promotional efforts.
                 <br />
