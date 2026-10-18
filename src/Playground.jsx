@@ -179,6 +179,14 @@ function Img({ src, alt = '', ratio, label, href, imgStyle, onClick, stretch = f
   );
 }
 
+function ComingSoon({ stretch = false }) {
+  return (
+    <div className={`pg-img pg-coming-soon${stretch ? ' pg-coming-soon--stretch' : ''}`}>
+      <span>image coming soon!</span>
+    </div>
+  );
+}
+
 export default function Playground() {
   const [lotusOpen, setLotusOpen] = useState(false);
 
@@ -227,16 +235,16 @@ export default function Playground() {
                   <Img src={imgBeads}      ratio="426/352" label={beadsLabel} />
                 </div>
               </div>
-              <Img
-                src={imgLotus1}
-                label={lotusLabel}
-                stretch
-                imgStyle={{ objectPosition: 'center 38%' }}
-                onClick={() => setLotusOpen(true)}
-              />
+              <ComingSoon stretch />
             </div>
             <div className="pg-col">
               <Img src={imgKoifish}  ratio="426/438" label={koifishLabel} />
+              <Img
+                src={imgLotus1}
+                ratio="1469/2000"
+                label={lotusLabel}
+                onClick={() => setLotusOpen(true)}
+              />
               <Img src={imgPikachu} ratio="426/379" />
               <Img src={imgImg1852} ratio="426/568" />
             </div>
