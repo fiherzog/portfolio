@@ -36,7 +36,7 @@ const PHOTOS = [
   { src: img2, ratio: '1 / 1', pos: 'center 30%' },
 ];
 
-export default function ModelingGallery({ onClose }) {
+export default function ModelingGallery({ onClose, title = 'Modeling', photos = PHOTOS }) {
   const closeRef = useRef(null);
 
   useEffect(() => {
@@ -58,18 +58,18 @@ export default function ModelingGallery({ onClose }) {
       className="mg-overlay"
       role="dialog"
       aria-modal="true"
-      aria-label="Modeling photo gallery"
+      aria-label={`${title} photo gallery`}
       onClick={onClose}
     >
       <div className="mg-panel" onClick={(e) => e.stopPropagation()}>
         <div className="mg-header">
-          <h2 className="mg-title">Modeling</h2>
+          <h2 className="mg-title">{title}</h2>
           <button ref={closeRef} type="button" className="mg-close" onClick={onClose} aria-label="Close gallery">
             &times;
           </button>
         </div>
         <div className="mg-grid">
-          {PHOTOS.map((p, i) => (
+          {photos.map((p, i) => (
             <figure key={i} className="mg-item" style={{ aspectRatio: p.ratio }}>
               <img src={p.src} alt="" loading="lazy" style={{ objectPosition: p.pos }} />
             </figure>

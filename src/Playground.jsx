@@ -14,6 +14,10 @@ import imgCatcoasters from './assets/catcoasters.jpg';
 import imgImg4915     from './assets/img4915.jpg';
 import imgImg1852     from './assets/img1852.jpg';
 import imgBoloButton  from './assets/bolobutton.jpg';
+import imgLotus1      from './assets/lotus/lotus-1.jpg';
+import imgLotus2      from './assets/lotus/lotus-2.jpg';
+import imgLotus3      from './assets/lotus/lotus-3.jpg';
+import ModelingGallery from './ModelingGallery';
 
 /* ── Cursor-following tooltip labels ── */
 
@@ -57,6 +61,25 @@ const boloLabel = (
     </p>
   </>
 );
+
+const lotusLabel = (
+  <>
+    <p>lotus tie belt</p>
+    <p>&nbsp;</p>
+    <p>
+      <span style={{ fontStyle: 'normal', fontWeight: 700 }}>Materials: </span>
+      <span style={{ fontStyle: 'normal', fontWeight: 400 }}>
+        laser-cut acrylic, heat bent acrylic, para-cord
+      </span>
+    </p>
+  </>
+);
+
+const LOTUS_PHOTOS = [
+  { src: imgLotus1, ratio: '3 / 4', pos: 'center 30%' },
+  { src: imgLotus2, ratio: '1 / 1', pos: 'center 35%' },
+  { src: imgLotus3, ratio: '4 / 5', pos: 'center 40%' },
+];
 
 const beadsLabel = (
   <>
@@ -110,7 +133,7 @@ const img4915Label = (
   </>
 );
 
-function Img({ src, alt = '', ratio, label, href, imgStyle }) {
+function Img({ src, alt = '', ratio, label, href, imgStyle, onClick, stretch = false }) {
   const tooltipRef = useRef(null);
   const rafRef     = useRef(null);
   const [hovered, setHovered] = useState(false);
@@ -130,8 +153,12 @@ function Img({ src, alt = '', ratio, label, href, imgStyle }) {
 
   return (
     <div
-      className={`pg-img${label ? ' pg-img--labeled' : ''}`}
-      style={{ aspectRatio: ratio }}
+      className={`pg-img${label ? ' pg-img--labeled' : ''}${stretch ? ' pg-img--stretch' : ''}${onClick ? ' pg-img--clickable' : ''}`}
+      style={stretch ? undefined : { aspectRatio: ratio }}
+      onClick={onClick}
+      onKeyDown={onClick ? (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick(); } } : undefined}
+      role={onClick ? 'button' : undefined}
+      tabIndex={onClick ? 0 : undefined}
       onMouseMove={label ? handleMouseMove : undefined}
       onMouseEnter={label ? handleMouseEnter : undefined}
       onMouseLeave={label ? handleMouseLeave : undefined}
@@ -152,15 +179,9 @@ function Img({ src, alt = '', ratio, label, href, imgStyle }) {
   );
 }
 
-function ComingSoon({ stretch = false }) {
-  return (
-    <div className={`pg-img pg-coming-soon${stretch ? ' pg-coming-soon--stretch' : ''}`}>
-      <span>image coming soon!</span>
-    </div>
-  );
-}
-
 export default function Playground() {
+  const [lotusOpen, setLotusOpen] = useState(false);
+
   return (
     <div className="playground-page">
       <Nav />
@@ -206,7 +227,13 @@ export default function Playground() {
                   <Img src={imgBeads}      ratio="426/352" label={beadsLabel} />
                 </div>
               </div>
-              <ComingSoon stretch />
+              <Img
+                src={imgLotus1}
+                label={lotusLabel}
+                stretch
+                imgStyle={{ objectPosition: 'center 38%' }}
+                onClick={() => setLotusOpen(true)}
+              />
             </div>
             <div className="pg-col">
               <Img src={imgKoifish}  ratio="426/438" label={koifishLabel} />
@@ -230,6 +257,9 @@ export default function Playground() {
 
         </div>
       </div>
+      {lotusOpen && (
+        <ModelingGallery title="Lotus Tie Belt" photos={LOTUS_PHOTOS} onClose={() => setLotusOpen(false)} />
+      )}
     </div>
   );
 }

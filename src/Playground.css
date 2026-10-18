@@ -112,6 +112,20 @@
   justify-content: center;
 }
 
+.pg-img--stretch {
+  flex: 1;
+  min-height: 200px;
+}
+
+.pg-img--stretch img {
+  position: absolute;
+  inset: 0;
+}
+
+.pg-img--clickable {
+  cursor: pointer;
+}
+
 .pg-coming-soon--stretch {
   flex: 1;
   min-height: 200px;
