@@ -179,14 +179,6 @@ function Img({ src, alt = '', ratio, label, href, imgStyle, onClick, stretch = f
   );
 }
 
-function ComingSoon({ stretch = false }) {
-  return (
-    <div className={`pg-img pg-coming-soon${stretch ? ' pg-coming-soon--stretch' : ''}`}>
-      <span>image coming soon!</span>
-    </div>
-  );
-}
-
 export default function Playground() {
   const [lotusOpen, setLotusOpen] = useState(false);
 
@@ -217,49 +209,44 @@ export default function Playground() {
             </div>
           </div>
 
-          {/* Row 2: applecraft/bolo/img4915/beads + wide coming soon (cols 1–2) | koifish, pikachu, img1852 stacked continuously (col 3) */}
+          {/* Row 2: three even columns */}
           <div className="pg-row">
-            <div className="pg-col-wide">
-              <div className="pg-row">
-                <div className="pg-col">
-                  <Img src={imgAppleCraft} ratio="426/379" label={appleLabel} />
-                  <Img src={imgImg4915}    ratio="426/559" label={img4915Label} />
-                </div>
-                <div className="pg-col">
-                  <Img
-                    src={imgBoloButton}
-                    ratio="941/1295"
-                    label={boloLabel}
-                    href="https://www.eventbrite.com/e/intro-to-lasercutting-make-a-lasercut-button-bolo-tie-tickets-2002573842270"
-                  />
-                  <Img src={imgBeads}      ratio="426/352" label={beadsLabel} />
-                </div>
-              </div>
-              <ComingSoon stretch />
-            </div>
             <div className="pg-col">
-              <Img src={imgKoifish}  ratio="426/438" label={koifishLabel} />
+              <Img src={imgAppleCraft} ratio="426/379" label={appleLabel} />
               <Img
                 src={imgLotus1}
                 ratio="1469/2000"
                 label={lotusLabel}
                 onClick={() => setLotusOpen(true)}
               />
-              <Img src={imgPikachu} ratio="426/379" />
-              <Img src={imgImg1852} ratio="426/568" />
+            </div>
+            <div className="pg-col">
+              <Img
+                src={imgBoloButton}
+                ratio="941/1295"
+                label={boloLabel}
+                href="https://www.eventbrite.com/e/intro-to-lasercutting-make-a-lasercut-button-bolo-tie-tickets-2002573842270"
+              />
+              <Img src={imgBeads}      ratio="426/352" label={beadsLabel} />
+            </div>
+            <div className="pg-col">
+              <Img src={imgKoifish}  ratio="426/438" label={koifishLabel} />
+              <Img src={imgImg4915}  ratio="426/559" label={img4915Label} />
             </div>
           </div>
 
-          {/* Row 4: three image columns */}
+          {/* Row 3: three image columns */}
           <div className="pg-row">
             <div className="pg-col">
               <Img src={imgLuckycat}    ratio="427/451" label={luckycatLabel} />
+              <Img src={imgPikachu}     ratio="426/379" />
             </div>
             <div className="pg-col">
               <Img src={imgImg5500}     ratio="426/728" />
             </div>
             <div className="pg-col">
               <Img src={imgCatcoasters} ratio="427/440" />
+              <Img src={imgImg1852}     ratio="426/568" />
             </div>
           </div>
 
