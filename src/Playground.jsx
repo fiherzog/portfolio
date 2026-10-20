@@ -227,11 +227,11 @@ export default function Playground() {
                 label={boloLabel}
                 href="https://www.eventbrite.com/e/intro-to-lasercutting-make-a-lasercut-button-bolo-tie-tickets-2002573842270"
               />
-              <Img src={imgBeads}      ratio="426/352" label={beadsLabel} />
+              <Img src={imgBeads}      ratio="426/373" label={beadsLabel} />
             </div>
             <div className="pg-col">
               <Img src={imgKoifish}  ratio="426/438" label={koifishLabel} />
-              <Img src={imgImg4915}  ratio="426/559" label={img4915Label} />
+              <Img src={imgImg4915}  ratio="426/521" label={img4915Label} imgStyle={{ objectPosition: 'center 45%' }} />
             </div>
           </div>
 
@@ -239,14 +239,14 @@ export default function Playground() {
           <div className="pg-row">
             <div className="pg-col">
               <Img src={imgLuckycat}    ratio="427/451" label={luckycatLabel} />
-              <Img src={imgPikachu}     ratio="426/379" />
+              <Img src={imgPikachu}     ratio="426/402" imgStyle={{ objectPosition: 'center 55%' }} />
             </div>
             <div className="pg-col">
-              <Img src={imgImg5500}     ratio="426/728" />
+              <Img src={imgImg5500}     stretch />
             </div>
             <div className="pg-col">
               <Img src={imgCatcoasters} ratio="427/440" />
-              <Img src={imgImg1852}     ratio="426/568" />
+              <Img src={imgImg1852}     ratio="426/413" imgStyle={{ objectPosition: 'center 40%' }} />
             </div>
           </div>
 
