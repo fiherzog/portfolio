@@ -1,6 +1,6 @@
-import { useState } from 'react';
+
 import './Work.css';
-import ModelingGallery from './ModelingGallery';
+
 import Nav from './Nav';
 import BroadcastAscii from './BroadcastAscii';
 import WellsFargoCard from './WellsFargoCard';
@@ -90,7 +90,7 @@ function ProjectCard({ image, video, poster, imageFit = 'cover', imageHeight, im
 }
 
 export default function Work() {
-  const [galleryOpen, setGalleryOpen] = useState(false);
+
 
   return (
     <div className="work-page">
@@ -140,25 +140,7 @@ export default function Work() {
             imageHref="https://www.figma.com/deck/YZNnxjdtHuQ8gsYnHGjR7S"
             description="A deployed digital experience that is anonymous & authenticated for Penn students to express, manage, and release their pent-up emotions."
           />
-          <div className="modeling">
-            <h2 className="project-title">
-              <button
-                type="button"
-                className="project-title--link modeling-trigger"
-                onClick={() => setGalleryOpen(true)}
-                aria-haspopup="dialog"
-              >
-                Modeling
-              </button>
-            </h2>
-            <ul className="modeling-list">
-              <li>Nuuly (URBN)</li>
-              <li><a href="https://www.instagram.com/roomshop/" target="_blank" rel="noreferrer">The Room Shop</a></li>
-              <li><a href="https://www.thevagabondsverse.org" target="_blank" rel="noreferrer">The Vagabond’s Verse</a></li>
-              <li><a href="https://www.bokeumjeon.com/" target="_blank" rel="noreferrer">Bokeum Jeon</a></li>
-              <li><a href="https://www.instagram.com/makingtimeisrad/" target="_blank" rel="noreferrer">Making Time</a></li>
-            </ul>
-          </div>
+
         </div>
 
         {/* Column 2 */}
@@ -239,7 +221,7 @@ export default function Work() {
           />
         </div>
       </div>
-      {galleryOpen && <ModelingGallery onClose={() => setGalleryOpen(false)} />}
+
     </div>
   );
 }
