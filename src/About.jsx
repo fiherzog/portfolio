@@ -20,7 +20,7 @@ const experience = [
   { role: 'Research Assistant', company: 'Price Labs for Digital Humanities', date: 'Spring 2025' },
   { role: 'Product Manager', company: 'Penn Spark', date: 'Fall 2023 – Present' },
   { role: 'Assignments Editor on Executive Board', company: '34th Street', date: 'Fall 2023 – Present' },
-  { role: 'Model', company: 'Nuuly (URBN), The Room Shop, The Vagabond’s Verse, Bokeum Jeon, Making Time', date: '2024 – Present' },
+
 ];
 
 export default function About() {
